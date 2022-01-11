@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: spring-petclinic
 spec:
-  replicas: 3
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: spring-petclinic
-        release: beta-3
+        release: master
     spec:
       containers:
       # modify the following line with your Docker Hub account name
