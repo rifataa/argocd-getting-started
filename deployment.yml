@@ -17,7 +17,8 @@ spec:
       containers:
       # modify the following line with your Docker Hub account name
       # - image: index.docker.io/anthonyvetter/spring-petclinic:latest
-      - image: rifata/spring-petclinic:latest
+      # - image: rifata/spring-petclinic:latest
+      - image: 235975543772.dkr.ecr.us-east-2.amazonaws.com/spring-petclinic:latest
         name: spring-petclinic
         ports:
         - containerPort: 8080
