@@ -6,7 +6,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 235975543772.dkr.ecr.us-east-2.amazonaws.com
-      - REPOSITORY_URI=235975543772.dkr.ecr.us-east-2.amazonaws.com/pcm
+      - REPOSITORY_URI=235975543772.dkr.ecr.us-east-2.amazonaws.com/spring-petclinic
       - echo $REPOSITORY_URI
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo $COMMIT_HASH
@@ -15,7 +15,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn clean install
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
